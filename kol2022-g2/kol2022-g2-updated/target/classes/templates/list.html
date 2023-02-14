@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>WP Exam</title>
+</head>
+<body>
+
+<div>
+    <!-- The form below should invoke the method StudentController.showList -->
+    <form id="filter-form">
+        <label for="f1">YearsOfStudying</label>
+        <input id="f1" type="number"/>
+        <label for="f2">Course</label>
+        <select id="f2">
+            <option value="">All</option>
+            <!-- For each course you should have one <option> like below  -->
+            <option> [course]</option>
+        </select>
+        <button id="filter" type="submit">Filter</button>
+    </form>
+    <div>
+        <!-- CourseController.showAdd (Only ADMIN can see this element)-->
+            <a href="" class="add-item">
+                Add
+            </a>
+    </div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Type</th>
+            <th>Courses</th>
+            <th>Actions</th>
+        </tr>
+        <!-- For each student you should have one <tr> like below -->
+        <tr class="item">
+            <td>[student.name]</td>
+            <td>[student.email]</td>
+            <td>[student.type]</td>
+            <td>
+                <!-- For each of the student.courses show the following element-->
+                <span class="item-rel"> [course.name]</span>
+            </td>
+            <td>
+                    <!-- StudentController.delete (Only ADMIN can see this element)-->
+                    <form>
+                        <button type="submit" class="delete-item">Delete</button>
+                    </form>
+                    <!-- StudentController.showEdit (Only ADMIN can see this element)-->
+                    <a class="edit-item">Edit</a>
+            </td>
+        </tr>
+    </table>
+
+</div>
+<div>
+    <ul id="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</div>
+</body>
+</html>
